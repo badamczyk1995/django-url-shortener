@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+
+            <div style="margin: 10%">
+                <div class="card" style="padding: 10px;">
+                    <div class="card-body">
+                        <div style="margin-bottom: 100px">
+                            <span style="text-align: center"><h1 class="card-title">URL SHORTENER</h1></span>
+
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <div style="margin: 10px 0px;">
+                                    <input class="form-control" id="url" type="text" name="url" value="{{ long_url }}" placeholder="Your Long URL">
+                                </div>
+                                <div style="float: right;">
+                                    <input class="btn btn-primary" type="submit" value="Shorten">
+                                </div>
+
+                            </form>
+                        </div>
+                        {% if short_url %}
+                        <div class="align-items-center d-flex justify-content-center">
+                                <span class="text-center">Your long url <a href="{{long_url}}">{{long_url}}</a> is now</span>
+                        </div>
+
+                        <div class="align-items-center d-flex justify-content-center" style="margin: 20px">
+                            <a class="text-success" href="{{complete_url}}"><h3>{{complete_url}}</h3></a>
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+            </div>
+
+
+{% endblock body %}
+
+
